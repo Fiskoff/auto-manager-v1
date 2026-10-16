@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, Engine, inspect, Inspector
 from sqlalchemy.orm import sessionmaker
 
-from backend.app.orm_models import Base
+from backend import Base
 
 
 sync_engine = create_engine('sqlite:///database.db')
@@ -27,4 +27,3 @@ class DBHelper:
 
         return False
 
-    
