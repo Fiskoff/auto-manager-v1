@@ -9,6 +9,8 @@ from backend.core.db_helper import DBHelper
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     db_helper = DBHelper()
+    app.state.db = db_helper
+
     if not db_helper.has_tables():
         db_helper.create_tables()
 
