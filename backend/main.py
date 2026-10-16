@@ -4,6 +4,7 @@ import uvicorn
 from fastapi import FastAPI, APIRouter
 
 from backend.core.db_helper import DBHelper
+from backend.app.routers import root_router, car_router, consumables_router
 
 
 @asynccontextmanager
@@ -23,6 +24,9 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 routers = APIRouter()
+routers.include_router(root_router)
+routers.include_router(car_router)
+routers.include_router(consumables_router)
 app.include_router(routers)
 
 
