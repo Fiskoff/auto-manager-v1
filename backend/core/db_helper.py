@@ -19,6 +19,8 @@ class DBHelper:
     def create_tables(self):
         Base.metadata.create_all(self.engine)
 
-    def has_tables(self):
-        return bool(self.inspector.get_table_names())
+    def get_tables_count(self):
+        return len(self.inspector.get_table_names())
 
+    def has_tables(self):
+        return bool(self.get_tables_count())
