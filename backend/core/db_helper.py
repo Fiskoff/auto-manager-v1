@@ -10,7 +10,6 @@ sync_engine = create_engine('sqlite:///database.db')
 class DBHelper:
     def __init__(self, engine: Engine = sync_engine):
         self.engine = engine
-        self.inspector = inspect(self.engine)
         self.Session = sessionmaker(bind=engine)
 
     def drop_tables(self):
@@ -20,7 +19,8 @@ class DBHelper:
         Base.metadata.create_all(self.engine)
 
     def get_tables_count(self):
-        return len(self.inspector.get_table_names())
+        inspector = inspect(self.engine)
+        return len(inspector.get_table_names())
 
     def has_tables(self):
         return bool(self.get_tables_count())
