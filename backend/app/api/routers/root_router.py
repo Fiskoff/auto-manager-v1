@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from backend.app.dependencies import get_db_helper
+from api.dependencies import get_db_helper
 from backend.core.db_helper import DBHelper
 
 

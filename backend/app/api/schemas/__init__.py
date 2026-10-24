@@ -1,5 +1,5 @@
-from car_scheme import CarCreate, CarResponse, CarUpdate
-from consumables_scheme import ConsumablesCreate, ConsumablesResponse, ConsumablesResponseList, ConsumablesUpdate
+from .car_scheme import CarCreate, CarResponse, CarUpdate
+from .consumables_scheme import ConsumablesCreate, ConsumablesResponse, ConsumablesResponseList, ConsumablesUpdate
 
 
 __all__ = [
