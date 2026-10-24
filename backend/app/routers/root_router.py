@@ -4,9 +4,6 @@ from backend.core.db_helper import DBHelper
 
 
 root_router = APIRouter(prefix='/root', tags=['Root'])
-car_router = APIRouter(prefix='/cars', tags=['Car'])
-consumables_router = APIRouter(prefix='/consumables', tags=['Consumables'])
-
 
 @root_router.get('/drop_db')
 def drop_db(db_helper: DBHelper = Depends(get_db_helper)):
@@ -25,4 +22,3 @@ def get_count_tables(db_helper: DBHelper = Depends(get_db_helper)):
 def create_db(db_helper: DBHelper = Depends(get_db_helper)):
     db_helper.create_tables()
     return get_count_tables(db_helper)
-
